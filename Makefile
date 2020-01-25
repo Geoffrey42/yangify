@@ -8,6 +8,9 @@ DEV_JUPYTER=docker run -p 8888:8888 -v $(PWD):/yangify ${NAME}-${PYTHON}:latest
 DEV_ME=docker run -it -v $(PWD):/yangify ${NAME}-${PYTHON}:latest /bin/bash
 
 
+hook:
+	@git config --local core.hooksPath "./.hooks"
+
 .PHONY: clean
 clean:
 	find . -name "__pycache__" -type d -exec rm -rf {} \; | exit 0
